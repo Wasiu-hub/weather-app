@@ -1,5 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-import "./App.css";
+import "../styles/App.css";
 
 function App() {
   return (
