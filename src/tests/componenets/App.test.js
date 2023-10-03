@@ -6,7 +6,8 @@ import forecast from "../../data/forecast.json";
 describe("App", () => {
   test("renders learn react link", () => {
     // eslint-disable-next-line react/react-in-jsx-scope
-    render(<App location />); // I don't understand this
+    // render(<App location={{}} />);
+    render(<App location />);
     const linkElement = screen.getByText(/Weather App/i);
     expect(linkElement).toBeInTheDocument();
   });
