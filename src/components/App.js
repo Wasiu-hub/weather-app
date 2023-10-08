@@ -8,7 +8,7 @@ function App({ location, forecasts }) {
   const { city, country } = location;
   return (
     <div className="App">
-      <h1>Weather App</h1>
+      {/* <h1>Weather App</h1> */}
       <LocationDetails city={city} country={country} />
       <ForecastSummaries forecasts={forecasts} />
     </div>
