@@ -1,9 +1,11 @@
+/* eslint-disable import/extensions */
 /* eslint-disable react/function-component-definition */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable prettier/prettier */
 
 import React from "react";
 import ForecastSummary from "./ForecastSummary";
+import "../styles/ForecastSummaries.css";
 
 function ForecastSummaries({ forecasts }) {
   return (
