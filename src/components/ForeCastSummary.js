@@ -11,9 +11,11 @@ function ForecastSummary(props) {
   const weatherCode = icon.slice(0, 1) + "00"; // understand what's happening here
   // console.log(weatherCode);
 
+  const formattedDate = new Date(date).toDateString();
+
   return (
     <div className="forecast-summary" data-testid="forecast-summary">
-      <div className="forecast-summary__date">{date}</div>
+      <div className="forecast-summary__date">{formattedDate}</div>
       <div className="forecast-summary__icon" data-testid="forecast-icon">
         {/* {icon}ß */}
         <img src={iconData[weatherCode]} alt="Weather Icon" />
