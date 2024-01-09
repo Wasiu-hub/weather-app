@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 /* eslint-disable prettier/prettier */
 /* eslint-disable react/react-in-jsx-scope */
 import "../styles/App.css";
@@ -22,7 +23,10 @@ function App({ location, forecasts }) {
     <div className="weather-app">
       {/* <h1>Weather App</h1> */}
       <LocationDetails city={city} country={country} />
-      <ForecastSummaries forecasts={forecasts} />
+      <ForecastSummaries
+        forecasts={forecasts}
+        onForecastSelect={handleForecastSelect}
+      />
       <ForecastDetails forecast={selectedForecast} />
     </div>
   );
