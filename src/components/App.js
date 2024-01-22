@@ -7,10 +7,12 @@ import LocationDetails from "./LocationDetails";
 import ForecastSummaries from "./ForecastSummaries";
 import ForecastDetails from "./ForecastDetails";
 
-function App({ location, forecasts }) {
-  const { city, country } = location;
+function App() {
+  const [forecasts, setForecasts] = useState([]);
 
-  const [selectedDate, setSelectedDate] = useState(forecasts[0].date);
+  const [location, setLocation] = useState({ city: "", country: "" });
+  const [selectedDate, setSelectedDate] = useState(0);
+
   const selectedForecast = forecasts.find(
     (forecast) => forecast.date === selectedDate
   );
@@ -21,13 +23,12 @@ function App({ location, forecasts }) {
 
   return (
     <div className="weather-app">
-      {/* <h1>Weather App</h1> */}
-      <LocationDetails city={city} country={country} />
+      <LocationDetails city={location.city} country={location.country} />
       <ForecastSummaries
         forecasts={forecasts}
         onForecastSelect={handleForecastSelect}
       />
-      <ForecastDetails forecast={selectedForecast} />
+      {selectedForecast && <ForecastDetails forecast={selectedForecast} />}
     </div>
   );
 }
