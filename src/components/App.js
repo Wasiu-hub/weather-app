@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default-member */
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable prettier/prettier */
@@ -19,6 +20,7 @@ function App() {
   const selectedForecast = forecasts.find(
     (forecast) => forecast.date === selectedDate
   );
+  const [errorMessage, setErrorMessage] = useState("");
 
   function handleForecastSelect(date) {
     setSelectedDate(date);
@@ -27,13 +29,24 @@ function App() {
   useEffect(() => {
     getForecast("Manchester", setSelectedDate, setForecasts, setLocation);
   }, []);
+
   const handleCitySearch = () => {
-    getForecast(searchText, setSelectedDate, setForecasts, setLocation);
+    getForecast(
+      searchText,
+      setSelectedDate,
+      setForecasts,
+      setLocation,
+      setErrorMessage
+    );
   };
 
   return (
     <div className="weather-app">
-      <LocationDetails city={location.city} country={location.country} />
+      <LocationDetails
+        city={location.city}
+        country={location.country}
+        errorMessage={errorMessage}
+      />
       <SearchForm
         searchText={searchText}
         setSearchText={setSearchText}
